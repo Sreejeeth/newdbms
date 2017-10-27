@@ -31,7 +31,7 @@ INSTALLED_APPS = [
 
     'mysite.core',
     'cart',
-    'sorl.thumbnail',
+    
 
 ]
 
