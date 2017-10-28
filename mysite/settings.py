@@ -17,7 +17,11 @@ DEBUG = True
 ADMIN_SITE_HEADER = "PROSTHETIC MANAGEMENT"
 
 ALLOWED_HOSTS = []
-
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_HOST_USER='sayantika009@gmail.com'
+EMAIL_HOST_PASSWORD='hatinglife@123'
+EMAIL_PORT=587
+EMAIL_USE_TLS= True
 
 # Application definition
 
