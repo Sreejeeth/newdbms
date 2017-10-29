@@ -27,8 +27,9 @@
 </ul>
 <ul class="nav navbar-nav navbar-right">
             {% if user.is_authenticated %}
-            <li><a class ="navbar-link " href="{% url 'logout' %}"><span class="glyphicon glyphicon-user"></span>logout</a></li>
-            <li><a class="navbar-link" href="{% url 'about' %}"><span class="glyphicon glyphicon-user"></span>About</a></li>
+
+            <li><a class="navbar-link" href="{% url 'about' %}"></span>About Products</a></li>
+              <li><a class ="navbar-link " href="{% url 'logout' %}"><span class="glyphicon glyphicon-user"></span>logout</a></li>
             {% else %}
             <li><a class ="navbar-link"href="{% url 'login' %}">login</a></li>
              <li><a class ="navbar-link"href="{% url 'signup' %}">signup</a></li>
