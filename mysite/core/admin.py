@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from mysite.core.models import Productdb,Category
+from mysite.core.models import Productdb,Category,About
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name', 'slug']
@@ -15,3 +15,5 @@ class ProductAdmin(admin.ModelAdmin):
     list_editable = ['price', 'stock', 'available']
     prepopulated_fields = {'slug': ('name',)}
 admin.site.register(Productdb, ProductAdmin)
+
+admin.site.register(About)
