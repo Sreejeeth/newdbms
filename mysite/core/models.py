@@ -46,3 +46,11 @@ class Productdb(models.Model):
 
     def get_absolute_url(self):
         return reverse('product_detail', args=[self.id, self.slug])
+
+class About(models.Model):
+    image = ResizedImageField(size=[300, 300], upload_to='products/%Y/%m/%d', blank=True)
+    name = models.CharField(max_length=200, db_index=True)
+    description = models.CharField(max_length=2000, db_index=True)
+
+    def __str__(self):
+        return self.name

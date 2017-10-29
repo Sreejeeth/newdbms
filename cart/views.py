@@ -36,7 +36,7 @@ def cart_detail(request):
     return render(request, 'cart_detail.html', {'cart': cart})
 
 def sendemail(request):
-	print "email sent"
+	print ("email sent")
 	send_mail('hello','order recieved', settings.EMAIL_HOST_USER,['sayantikabanik122@gmail.com'],fail_silently=False)
 #	return redirect('cart:cart_detail')
 @csrf_protect

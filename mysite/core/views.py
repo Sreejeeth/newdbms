@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
-from mysite.core.models import Productdb,Category
+from mysite.core.models import Productdb,Category,About
 from django.shortcuts import render, get_object_or_404
 from cart.forms import CartAddProductForm
 
@@ -53,3 +53,8 @@ def product_detail(request, id, slug):
                   'detail.html',
                   {'product': product,
                    'cart_product_form': cart_product_form})
+
+def about(request):
+    about_list = About.objects.all()
+    about_dict = {"about_records":about_list}
+    return render(request,'about.html',about_dict)
