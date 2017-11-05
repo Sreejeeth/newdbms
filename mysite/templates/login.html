@@ -2,11 +2,10 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-
 <style>
 body  {
-    background-image: url("https://cdna.artstation.com/p/assets/images/images/002/815/880/large/joshua-cotter-cotter-prostheticsunder22.jpg?1466034671");
-    background-color: #cccccc;
+    background-image: url("https://goo.gl/VHzU3u");
+    background-color: #ffffff;
 }
 </style>
 
@@ -16,6 +15,7 @@ body  {
     <p style="color: red">Your username and password didn't match. Please try again.</p>
 </div>
   {% endif %}
+<div align="center">
   <form method="post">
     {% csrf_token %}
     <input type="hidden" name="next" value="{{ next }}" />
@@ -37,4 +37,5 @@ body  {
     <a style="color:#000000;" href="{% url 'signup' %}">New to My Site? Sign up</a>
 
   </form>
+</div>
 {% endblock %}

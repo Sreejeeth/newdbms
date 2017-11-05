@@ -1,7 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Sign up</h2>
+<style>
+body  {
+    background-image: url("https://goo.gl/VHzU3u");
+    background-color: #ffffff;
+}
+</style>
+<div align="left">
+  <h1>Sign Up</h1>
   <form method="post">
     {% csrf_token %}
     {% for field in form %}
@@ -18,4 +25,5 @@
     {% endfor %}
     <button type="submit">Sign up</button>
   </form>
+</div>
 {% endblock %}

@@ -22,7 +22,7 @@
 
             <ul class="nav navbar-nav ">
 
-          <li ><a class ="navbar-brand " href="{% url 'home' %}">My Site</a></li>
+          <li ><label><a class ="navbar-brand " href="{% url 'home' %}">Home</a></label></li>
 
 </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -31,8 +31,8 @@
             <li><a class="navbar-link" href="{% url 'about' %}"></span>About Products</a></li>
               <li><a class ="navbar-link " href="{% url 'logout' %}"><span class="glyphicon glyphicon-user"></span>logout</a></li>
             {% else %}
-            <li><a class ="navbar-link"href="{% url 'login' %}">login</a></li>
-             <li><a class ="navbar-link"href="{% url 'signup' %}">signup</a></li>
+            <li><a class ="navbar-link"href="{% url 'login' %}">Login</a></label></li>
+             <li><a class ="navbar-link"href="{% url 'signup' %}">Signup</a></label></li>
             {% endif %}
           </ul>
 </div>

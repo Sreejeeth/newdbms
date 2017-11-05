@@ -42,24 +42,25 @@
                             {% csrf_token %}
                         </form>
                     </td>
-                    <td><a href="{% url "cart:cart_remove" product.id %}">Remove</a></td>
+                    <td><button><a href="{% url "cart:cart_remove" product.id %}">Remove</a></button></td>
                     <td class="num">${{ item.price }}</td>
                     <td class="num">${{ item.total_price }}</td>
                 </tr>
                 {% endwith %}
             {% endfor %}
             <tr class="total">
-                <td>Total</td>
+                <td><label>Total</label></td>
                 <td colspan="4"></td>
-                <td class="num">${{ cart.get_total_price }}</td>
+                <td class="num"><label>${{ cart.get_total_price }}</label></td>
             </tr>
             </tbody>
         </table>
       </div>
       <p class="text-right">
-          <a href="{% url "home" %}" class="button light">Continue shopping</a> -->
+	<button>
+          <a href="{% url "home" %}" class="button light">Continue shopping</a> </button>
 <div align="center">
-	<button type="submit", onclick="fun()">Submit</button>
+<!--	<button type="submit", onclick="fun()">Submit</button>--->
 <script>
 	function fun(){
 	alert("Thanks for visiting us!");
@@ -76,14 +77,15 @@ emailjs.send("gmail","template_jpKYdkOi",{name: "James", notes: "Check this out!
 	</div>-->
 
   <form id="myform" method="post">
-  <label>reply_to</label>
+  <label>Reply To</label>
   <input type="text" name="reply_to" />
-  <label>from_name</label>
+  <label>Name</label>
   <input type="text" name="from_name" />
   <br><br>
   <button>
-  Send
+  Submit
   </button>
+  <br><br>
   {%csrf_token%}
   </form>
 
@@ -107,7 +109,7 @@ emailjs.send("gmail","template_jpKYdkOi",{name: "James", notes: "Check this out!
     myform.find("button").text("Sending...");
     emailjs.sendForm(service_id,template_id,"myform")
     	.then(function(){
-      	alert("Sent!");
+      	alert("Details are emailed!\nThanks for visiting us!");
          myform.find("button").text("Send");
       }, function(err) {
          alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
