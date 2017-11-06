@@ -58,3 +58,6 @@ def about(request):
     about_list = About.objects.all()
     about_dict = {"about_records":about_list}
     return render(request,'about.html',about_dict)
+
+def checkout(request):
+        return render(request,'checkout.html')

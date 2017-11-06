@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^signup/$', core_views.signup, name='signup'),
     url(r'^admin/', admin.site.urls),
     url(r'^about/',core_views.about, name='about'),
+    url(r'^checkout/',core_views.checkout, name='checkout'),
     url(r'^cart/', include('cart.urls', namespace='cart')),
     url(r'^product_list/$', core_views.product_list, name='product_list'),
     url(r'^(?P<category_slug>[-\w]+)/$', core_views.product_list, name='product_list_by_category'),
