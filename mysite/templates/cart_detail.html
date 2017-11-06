@@ -12,7 +12,7 @@
 
 
 
-  
+
 
         <div class="container">
         <h2>Your Cart</h2>
@@ -38,11 +38,11 @@
                         <form action="{% url "cart:cart_add" product.id %}" method="post">
                             {{ item.update_quantity_form.quantity }}
                             {{ item.update_quantity_form.update }}
-                            <input type="submit" value="Update">
+                            <input type="submit" value="Update" <button class ="btn btn-primary" style="color:black">
                             {% csrf_token %}
                         </form>
                     </td>
-                    <td><button><a href="{% url "cart:cart_remove" product.id %}">Remove</a></button></td>
+                    <td><a href="{% url "cart:cart_remove" product.id %}"><button class ="btn btn-primary" style="color:black">Remove</button></a></td>
                     <td class="num">${{ item.price }}</td>
                     <td class="num">${{ item.total_price }}</td>
                 </tr>
@@ -57,8 +57,8 @@
         </table>
       </div>
       <p class="text-right">
-	<button>
-          <a href="{% url "home" %}" class="button light">Continue shopping</a> </button>
+
+          <a href="{% url "home" %}"><button   class =" btn btn-primary" style="color:black">Continue shopping </button></a>
 <div align="center">
 <!--	<button type="submit", onclick="fun()">Submit</button>--->
 <script>
@@ -76,19 +76,22 @@ function email(){
 emailjs.send("gmail","template_jpKYdkOi",{name: "James", notes: "Check this out!"});</script>
 	</div>-->
 
+<div class="container" style="background-color:black">
+
+</div>
   <form id="myform" method="post">
-  <label>Reply To</label>
+  <label >Reply To</label>
   <input type="text" name="reply_to" />
   <label>Name</label>
   <input type="text" name="from_name" />
   <br><br>
-  <button>
+<button   class =" btn btn-primary" style="color:black">
   Submit
   </button>
   <br><br>
   {%csrf_token%}
   </form>
-
+</div>
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
   <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
