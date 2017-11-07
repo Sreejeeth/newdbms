@@ -1,10 +1,11 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
+
 	<style>
-<body>{
-background-color:	#85A1AD
+body{
+background-image:url("https://goo.gl/F1D8qC");
+
 }
-</body>
 </style>
 {% block title %}
     {% if category %}{{ category.name }}{% else %}Products{% endif %}

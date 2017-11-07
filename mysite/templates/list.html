@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
-
+<style>
+body
+{
+background-image: url("https://goo.gl/F1D8qC");
+}
+</style>
 {% block title %}
     {% if category %}{{ category.name }}{% else %}Products{% endif %}
 {% endblock %}

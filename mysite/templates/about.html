@@ -2,14 +2,16 @@
 
 {% block content %}
 {% load staticfiles %}
+
 <style>
 body  {
+	 background-image: url("https://goo.gl/F1D8qC");
     
-    background-color: #ffffff;
+    
 }
 </style>
-<div class="jumbotron " style= "text-align :center">
-  <h1>About</hi>
+<div class="jumbotron"style= "align:center ;text-align :center; border: 5px">
+  <h1>About Our Products</h1>
 </div>
 <br>
 <br>
@@ -23,12 +25,31 @@ body  {
                     <div class="row">
                       <div class="col-xs-4">
                       <!-- <img src= "{% static "images/prostethics.jpg" %}" alt="Uh Oh, didn't show!"> -->
-                      <img src="{% if acc.image %}{{ acc.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
-                    </div>
-                      <div class="col-xs-8">
-                    <p>Name                  : <span style="font-family: verdana ; "> {{ acc.name }} </span></p>
+                      <img src="{% if acc.image %}{{ acc.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" height="200px" width="250px"class="w3-circle">
+<style>
+img {
 
-                    <p>Description                   :  <span  style="font-family: verdana">  {{ acc.description }} </span></p>
+    border-radius: 50%;
+}
+</style>
+<script>
+function bigImg(x) {
+    x.style.height = "250px";
+    x.style.width = "300px";
+}
+
+function normalImg(x) {
+    x.style.height = "200px";
+    x.style.width = "250px";
+}
+</script>
+
+                    </div>
+
+                      <div class="col-xs-8">
+                    <p><strong>Name                  : <span style="font-family: verdana ; "> {{ acc.name }} </span></strong></p>
+
+                    <p><strong>Description                   :  <span  style="font-family: verdana">  {{ acc.description }} </span></strong></p>
                   </div>
                 </div>
                     <hr style="display: block;height: 1px;border: 0;border-top: 1px solid #ccc;margin: 1em 0;padding: 0;">
