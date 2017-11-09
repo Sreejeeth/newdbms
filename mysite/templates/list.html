@@ -11,6 +11,17 @@ background-image: url("https://goo.gl/F1D8qC");
 {% endblock %}
 
 {% block content %}
+<style >
+.button5 {
+
+}
+
+.button5:hover {
+    /*background-image: url("https://ak4.picdn.net/shutterstock/videos/8823244/thumb/1.jpg");*/
+
+}
+
+</style>
 <div class="pull-right" >
     {% with total_items=cart|length %}
         {% if cart|length > 0 %}
@@ -33,17 +44,24 @@ background-image: url("https://goo.gl/F1D8qC");
         <br>
         <br>
         {% for product in products %}
-            <div class="row">
+            <div class="row button5">
               <div class="col-xs-4">
+
+
+
                 <a href="{{ product.get_absolute_url }}">
                     <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
                 </a>
+
               </div>
               <div class="col-xs-8">
+
                 <h1><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h1><br>
                 ${{ product.price }}<br>
                 <br>
+              <div style="color:black">
                 {{ product.description|linebreaks }}
+              </div>
               </div>
             </div>
 
