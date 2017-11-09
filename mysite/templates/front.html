@@ -1,0 +1,12 @@
+<h1>asdadsad</h1>
+
+<li ><label><a class ="navbar-brand " href="{% url 'home' %}">Home</a></label></li>
+
+{% if user.is_authenticated %}
+
+
+  <li><a class ="navbar-link " href="{% url 'logout' %}"><span class="glyphicon glyphicon-user"></span>logout</a></li>
+{% else %}
+<li><a class ="navbar-link"href="{% url 'login' %}">Login</a></label></li>
+ <li><a class ="navbar-link"href="{% url 'signup' %}">Signup</a></label></li>
+{% endif %}

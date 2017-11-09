@@ -61,3 +61,6 @@ def about(request):
 
 def checkout(request):
         return render(request,'checkout.html')
+
+def front(request):
+        return render(request,'front.html')
