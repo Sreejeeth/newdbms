@@ -1,6 +1,25 @@
+
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}prosthetics.com{% endblock %}</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="{% static "css/base.css" % }"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </head>
+
+
+<body>
 <div id="container">
-    
-<button type="submit">continue</button></div>
+
+</div>
 <style>
 body {
     background-color: #000000;
@@ -26,12 +45,12 @@ body {
 .cover {
     position: absolute;
     background-color: rgb(233,65,103);
-    border-radius: 50%;    
+    border-radius: 50%;
 }</style>
 <script>
 window.onload = function() {
     var container = document.getElementById("container");
-    
+
     var cW = container.offsetWidth;
     var cH = container.offsetHeight;
     var gravity = 2.65;
@@ -43,7 +62,7 @@ window.onload = function() {
     var speedX;
     var speedYDown = 13;
     var speedYUp = 15;
-    var fontSize = 92;    
+    var fontSize = 92;
     if (cW > 500) {
         startX = 0.16 * cW;
         speedX = 0.005 * cW;
@@ -51,8 +70,8 @@ window.onload = function() {
         startX = 0.15 * cW;
         speedX = 0.007 * cW;
     }
-    
-    
+
+
     // Ball object
     var Ball = function(sLetter, index) {
         this.sLetter = sLetter;
@@ -67,7 +86,7 @@ window.onload = function() {
         this.opa = 1;
         this.create();
     }
-    
+
     Ball.prototype = {
         create: function() {
             this.node = document.createElement("div");
@@ -83,7 +102,7 @@ window.onload = function() {
         move: function() {
             this.y += this.speedY;
             this.x += this.speedX;
-        
+
         },
         display: function() {
             //this.node.style.transform = "translate("+ this.x + "px," + this.y + "px)";
@@ -93,8 +112,8 @@ window.onload = function() {
             this.node.style.left = this.x / cW * 100 + "%";
         }
     }
-    
-    
+
+
     // TextBall object
     var TextBalls = function(sText) {
         this.sText = sText + " ";
@@ -103,7 +122,7 @@ window.onload = function() {
         this.timeIntv = null;
         this.life = 0;
         this.createBalls();
-        
+
     }
     TextBalls.prototype = {
         createBalls: function() {
@@ -114,16 +133,16 @@ window.onload = function() {
             this.balls[this.n-1].node.className = "cover";
             this.balls[this.n-1].xTarget = cW;
         },
-        
+
         move: function() {
             var thisObj = this;
             this.timeIntv = setInterval(function(){
                 thisObj.life++;
                 if (thisObj.life < lifespan2) {
                     for (var i = 0; i < thisObj.n; i++) {
-                        var ball = thisObj.balls[i];                        
+                        var ball = thisObj.balls[i];
                         if (ball.y < ground) {
-                            ball.speedY += gravity;                                
+                            ball.speedY += gravity;
                         } else {
                             ball.y = ground;
                             if (ball.jumpN < i || i == thisObj.n - 1) {
@@ -131,27 +150,31 @@ window.onload = function() {
                                 ball.speedY = - speedYUp;
                             } else {
                                 ball.speedY = 0;
-                                ball.speedX = 0;                                                              
+                                ball.speedX = 0;
                             }
-                        }                        
-                        
+                        }
+
                         ball.move();
-                        ball.display();                    
+                        ball.display();
                     }
                     if (thisObj.life > lifespan1) {
                         var coverB1 = thisObj.balls[thisObj.n-1];
                         coverB1.opa = coverB1.opa > 0? coverB1.opa-0.025 : 0;
                         coverB1.node.style.opacity = coverB1.opa;
                     }
-                }  else {clearInterval(thisObj.timeIntv);}                
-                
+                }  else {clearInterval(thisObj.timeIntv);}
+
             }, 50);
         }
     }
-    
+
     var tb = new TextBalls("PROSTHETICS \n");
-   
+
     tb.move();
 
-    
+
 }</script>
+<p class="text-right">
+  <a href="{% url "home" %}"><button   class =" btn btn-primary" style="color:black" >home </button></a>
+</body>
+</html>
