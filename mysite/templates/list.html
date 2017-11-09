@@ -11,15 +11,23 @@ background-image: url("https://goo.gl/F1D8qC");
 {% endblock %}
 
 {% block content %}
-<style >
-.button5 {
+<style>
+img {
 
+    border-radius: 10%;
+}
+</style>
+<script>
+function bigImg(x) {
+    x.style.height = "250px";
+    x.style.width = "300px";
 }
 
-.button5:hover {
-    /*background-image: url("https://ak4.picdn.net/shutterstock/videos/8823244/thumb/1.jpg");*/
-
+function normalImg(x) {
+    x.style.height = "200px";
+    x.style.width = "250px";
 }
+</script>
 
 </style>
 <div class="pull-right" >
@@ -50,7 +58,7 @@ background-image: url("https://goo.gl/F1D8qC");
 
 
                 <a href="{{ product.get_absolute_url }}">
-                    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+                    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" height="250px" width="250px"class="w3-cirle">
                 </a>
 
               </div>
